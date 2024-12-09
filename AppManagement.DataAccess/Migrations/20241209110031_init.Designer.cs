@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppManagement.DataAccess.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241207193441_init")]
+    [Migration("20241209110031_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -231,7 +231,7 @@ namespace AppManagement.DataAccess.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("GenderId")
+                    b.Property<int?>("GenderId")
                         .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
@@ -600,9 +600,7 @@ namespace AppManagement.DataAccess.Migrations
                 {
                     b.HasOne("AppManagement.Entities.Concrete.Gender", "Gender")
                         .WithMany("Users")
-                        .HasForeignKey("GenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GenderId");
 
                     b.Navigation("Gender");
                 });

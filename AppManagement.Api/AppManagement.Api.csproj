@@ -16,4 +16,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AppManagement.DataAccess\AppManagement.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
