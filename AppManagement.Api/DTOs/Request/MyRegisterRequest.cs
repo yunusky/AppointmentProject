@@ -1,7 +1,8 @@
 ﻿namespace AppManagement.Api.DTOs.Request
 {
-	public class RegisterRequest
+	public class MyRegisterRequest
 	{
+		public string? UserName { get; set; }
 		public string? FirstName { get; set; }
 		public string? LastName { get; set; }
 		public string Email { get; set; }
