@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="AutoMapperConfig\" />
+    <Folder Include="DTOs\Response\" />
     <Folder Include="Extensions\" />
     <Folder Include="Models\" />
   </ItemGroup>
