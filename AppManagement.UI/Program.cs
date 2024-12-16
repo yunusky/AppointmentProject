@@ -1,6 +1,11 @@
+using AppManagement.DataAccess.DbContexts;
+using AppManagement.Entities.Concrete;
+using AppManagement.UI.Extensions;
 using AppManagement.UI.MyProfile;
 using AspNetCoreHero.ToastNotification;
 using AspNetCoreHero.ToastNotification.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace AppManagement.UI
 {
@@ -10,14 +15,16 @@ namespace AppManagement.UI
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer("server=.;database=AppointmentDb;Trusted_Connection=True;TrustServerCertificate=True;"));
 			// Add services to the container.
+			builder.Services.AddIdentity<AppUser, AppRole>()
+		.AddEntityFrameworkStores<AppDbContext>()
+		.AddDefaultTokenProviders();
 			builder.Services.AddControllersWithViews();
 			builder.Services.AddAutoMapper(p => p.AddProfile<AutoMapperProfile>());
 			builder.Services.AddHttpClient("ApiClient", client =>
 			{
-				// API'nin temel adresi
 				client.BaseAddress = new Uri("http://localhost:5166");
-				//client.DefaultRequestHeaders.Add("Accept", "application/json"); // Gerekirse header ekleyin
 			});
 			builder.Services.AddNotyf(p =>
 			{
@@ -26,6 +33,9 @@ namespace AppManagement.UI
 				p.IsDismissable = true;
 
 			});
+
+			builder.Services.AddTicariService();
+
 			builder.Services.AddSession();
 			var app = builder.Build();
 

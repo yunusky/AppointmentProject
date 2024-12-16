@@ -13,6 +13,7 @@ namespace AppManagement.DataAccess.DbContexts
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Gender> Genders { get; set; }
 		public DbSet<Holiday> Holidays { get; set; }
+		public DbSet<Menu> Menus { get; set; }
 		public DbSet<Office> Offices { get; set; }
 		//public DbSet<OfficeSchedule> Schedules { get; set; }
 		public DbSet<ServiceArea> ServiceAreas { get; set; }

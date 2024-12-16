@@ -1,7 +1,5 @@
-using AppManagement.Api.DTOs.Request;
 using AppManagement.DataAccess.DbContexts;
 using AppManagement.Entities.Concrete;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppManagement.Api
@@ -41,31 +39,34 @@ namespace AppManagement.Api
 
 			app.UseAuthorization();
 			app.UseAuthentication();
+			app.UseCors(policy => policy
+				.AllowAnyOrigin()
+				.AllowAnyMethod()
+				.AllowAnyHeader());
+			//app.MapPost("/register", async (UserManager<AppUser> userManager, MyRegisterRequest model) =>
+			//{
+			//	if (model.Password != model.ConfirmPassword)
+			//	{
+			//		return Results.BadRequest(new { Error = "Passwords do not match." });
+			//	}
 
-			app.MapPost("/register", async (UserManager<AppUser> userManager, MyRegisterRequest model) =>
-			{
-				if (model.Password != model.ConfirmPassword)
-				{
-					return Results.BadRequest(new { Error = "Passwords do not match." });
-				}
+			//	var user = new AppUser
+			//	{
+			//		UserName = model.UserName,
+			//		Email = model.Email,
+			//		FirstName = model.FirstName,
+			//		LastName = model.LastName
+			//	};
 
-				var user = new AppUser
-				{
-					UserName = model.UserName,
-					Email = model.Email,
-					FirstName = model.FirstName,
-					LastName = model.LastName
-				};
+			//	var result = await userManager.CreateAsync(user, model.Password);
 
-				var result = await userManager.CreateAsync(user, model.Password);
+			//	if (!result.Succeeded)
+			//	{
+			//		return Results.BadRequest(result.Errors.Select(e => e.Description));
+			//	}
 
-				if (!result.Succeeded)
-				{
-					return Results.BadRequest(result.Errors.Select(e => e.Description));
-				}
-
-				return Results.Ok(new { Message = "User registered successfully." });
-			});
+			//	return Results.Ok(new { Message = "User registered successfully." });
+			//});
 
 			app.MapControllers();
 

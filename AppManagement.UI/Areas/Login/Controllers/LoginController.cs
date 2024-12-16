@@ -38,7 +38,7 @@ namespace AppManagement.UI.Areas.Login.Controllers
 			};
 
 			var jsonContent = new StringContent(JsonConvert.SerializeObject(loginData), Encoding.UTF8, "application/json");
-			var response = await _httpClient.PostAsync("/login", jsonContent);
+			var response = await _httpClient.PostAsync("AppManagement/login", jsonContent);
 
 			if (response.IsSuccessStatusCode)
 			{
