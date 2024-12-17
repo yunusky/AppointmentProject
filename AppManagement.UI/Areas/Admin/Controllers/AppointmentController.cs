@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppManagement.DataAccess.DbContexts;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AppManagement.UI.Areas.Admin.Controllers
 {
@@ -7,7 +8,11 @@ namespace AppManagement.UI.Areas.Admin.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			AppDbContext context = new AppDbContext();
+			var appointments = context.Appointments.ToList();
+			return View(appointments);
 		}
+
+
 	}
 }

@@ -1,0 +1,83 @@
+﻿<div class="card card-warning mt-5">
+	<div class="card-header">
+		<h3 class="card-title">Özelleştirilmiş Randevu</h3>
+	</div>
+	<!-- /.card-header -->
+	<div class="card-body">
+		<form>
+		
+			<div class="container mt-4">
+					<div class="row">
+						<div class="col-sm-6">
+							<!-- text input -->
+							<div class="form-group">
+								<label>Randevuya İsim verin</label>
+								<input type="text" class="form-control" placeholder="Standart Randevum">
+							</div>
+						</div>
+					</div>
+					<!-- Mesai Saati Başlangıç ve Bitiş -->
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="mesai-baslangic">Mesai Başlangıç Saati</label>
+								<input id="mesai-baslangic" class="form-control" type="time" name="mesai_start" min="07:00" max="22:00" required />
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="mesai-bitis">Mesai Bitiş Saati</label>
+								<input id="mesai-bitis" class="form-control" type="time" name="mesai_end" min="07:00" max="22:00" required />
+							</div>
+						</div>
+					</div>
+
+					<!-- Yemek Molası -->
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="yemek-mola-start">Yemek Molası Başlangıç</label>
+								<input id="yemek-mola-start" class="form-control" type="time" name="yemek_mola_start" min="07:00" max="22:00" required />
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="yemek-mola-end">Yemek Molası Bitiş</label>
+								<input id="yemek-mola-end" class="form-control" type="time" name="yemek_mola_end" min="07:00" max="22:00" required />
+							</div>
+						</div>
+					</div>
+
+					<!-- Randevu Süresi -->
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="randevu-sure">Randevu Süresi (Dakika)</label>
+								<input id="randevu-sure" class="form-control" type="number" name="randevu_sure" min="5" max="180" required />
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="dinlenme-sure">Randevu Sonrası Dinlenme Süresi (Dakika)</label>
+								<input id="dinlenme-sure" class="form-control" type="number" name="dinlenme_sure" min="5" max="60" required />
+							</div>
+						</div>
+					</div>
+
+					<!-- Checkbox: Tüm Günlere Uygula -->
+					<div class="form-group form-check mt-2">
+						<input id="tum-gun" class="form-check-input" type="checkbox" name="apply_all_days">
+						<label class="form-check-label" for="tum-gun">Tüm Günlere Uygula</label>
+					</div>
+
+					<!-- Gönder Butonu -->
+					<div class="form-group text-right">
+						<button type="submit" class="btn btn-primary">Kaydet</button>
+					</div>
+				
+			</div>
+
+		</form>
+	</div>
+	<!-- /.card-body -->
+</div>

@@ -17,9 +17,9 @@
             <td>@user.LastName</td>
             <td>@user.Email</td>
             <td>
-                <button asp-action="UserShow" asp-controller="User" asp-area="Admin" asp-route-id="@user.Id" type="button" class="btn  btn-outline-primary btn-sm">Göster</button>
-                <button asp-action="UserUpdate" asp-controller="User" asp-area="Admin" asp-route-id="@user.Id" type="button" class="btn btn-outline-success btn-sm">Güncelle</button>
-                <button asp-action="UserDelete" asp-controller="User" asp-area="Admin" asp-route-id="@user.Id" type="button" class="btn btn-outline-danger btn-sm">Sil</button>
+                <a asp-action="UserShow" asp-controller="User" asp-area="Admin" asp-route-id="@user.Id" type="button" class="btn  btn-outline-primary btn-sm">Göster</a>
+                <a asp-action="UserUpdate" asp-controller="User" asp-area="Admin" asp-route-id="@user.Id" type="button" class="btn btn-outline-success btn-sm">Güncelle</a>
+                <a asp-action="UserDelete" asp-controller="User" asp-area="Admin" asp-route-id="@user.Id" type="button" class="btn btn-outline-danger btn-sm">Sil</a>
             </td>
         </tr>
     }

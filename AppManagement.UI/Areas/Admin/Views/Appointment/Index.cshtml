@@ -1,1 +1,63 @@
-﻿Randevular
+﻿@model List<Appointment>
+<div class="row mt-5">
+	<div class="col-12">
+		<div class="card">
+			@* 	<div class="card-header">
+
+
+				<div class="card-tools">
+					<div class="input-group input-group-sm" style="width: 150px;">
+						<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+						<div class="input-group-append">
+							<button type="submit" class="btn btn-default">
+								<i class="fas fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div> *@
+			<!-- /.card-header -->
+			<div class="card-body table-responsive p-0">
+				<table class="table table-hover text-nowrap">
+					<thead>
+						<tr>
+							<th>Menu Name</th>
+							<th>Action Name</th>
+							<th>Controller Name</th>
+							<th>Area Name</th>
+							<th>Class Name</th>
+							<th>Css Name</th>
+							<th>Icon Name</th>
+							<th>Order No</th>
+							<th>Parent Menu Id</th>
+							<th>İşlemler</th>
+						</tr>
+					</thead>
+					<tbody>
+						@* @foreach (var menu in Model)
+						{
+							<tr>
+								<td>@menu.MenuName</td>
+								<td>@menu.ActionName</td>
+								<td>@menu.ControllerName</td>
+								<td>@menu.AreaName</td>
+								<td>@menu.ClassName</td>
+								<td>@menu.CssName</td>
+								<td>@menu.IConName</td>
+								<td>@menu.OrderNo</td>
+								<td>@menu.ParentMenuId</td>
+								<td>
+									<a asp-action="MenuUpdate" asp-controller="Menus" asp-area="Admin" asp-route-id="@menu.Id" type="button" class="btn btn-outline-success btn-sm">Güncelle</a>
+									<a asp-action="MenuDelete" asp-controller="Menus" asp-area="Admin" asp-route-id="@menu.Id" type="button" class="btn btn-outline-danger btn-sm">Sil</a>
+								</td>
+							</tr>
+						} *@
+					</tbody>
+				</table>
+			</div>
+			<!-- /.card-body -->
+		</div>
+		<!-- /.card -->
+	</div>
+</div>
